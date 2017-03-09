@@ -1,0 +1,48 @@
+---
+title: "hw1"
+author: "B02612026_劉家文"
+date: "2017/3/6"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+
+rm(list = ls(all=TRUE ))
+library(png)
+library(animation)
+
+rawData=read.csv('hw1.csv',header =TRUE)
+
+allLine=length(rawData[,1])
+rawData=rawData[-allLine,]
+
+yearid=rawData[,1]
+
+for (yid in c(1:length(rawData[,1])))
+{
+  barplot(as.matrix(rawData[yid,c(-1)]),  
+          main = paste0("NTU Student Counseling Center Counseling People/Visits
+ "," in ",rawData[yid,1]))
+}
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
